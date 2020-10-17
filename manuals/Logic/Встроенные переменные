@@ -1,40 +1,40 @@
-These variables are automatically provided to any processor:
+Эти переменные автоматически встроены в каждый процессор:
 
-## Constants
-These can't be changed, it would be a no-op to do so.
+## Константы
+Данные переменные не могут быть изменены по каким-либо причинам.
 
-# Primitives
+# Примитивы
 
-Primitives are the most basic of values in the language.
+Примитивы являются самыми базовыми значениями в языке.
 
 [royal]int[] false = 0
 [royal]int[] true = 1
 [royal]Object[] null = null
 
-# Processor
+# Процессор
 [royal]Building[] @this
-	The processor executing the instruction.
+	Процессор, исполняющий инструкцию
 
 [royal]double[] @thisx
 [royal]double[] @thisy
-	Shortcuts for [stat]sensor[]. The x and y coordinates of the processor.
+	Укороченная команда [stat]sensor[]. Представляют собой x и y координаты данного процессора.
 
 [royal]int[] @ipt
-	How many instructions are executed every tick on the current processor.
-	Probably useful for a clock.
+	Как много инструкций исполняется каждый такт на данном процессоре.
+	Возможно, полезно для таймера.
 
-# Links
+# Ссылки
 [royal]int[] @links
-	The number of links established between the processor and other blocks.
-	This is represented visually by a blue diamond around a block, similar to how you would link power nodes together.
-	You can get the Building object for one using [stat]getlink[].
-	Example code to iterate over them (run through them) all:
+	Количество ссылок между процессором и другими блоками.
+	Визуально ссылка отображается как синий ромб вокруг блока, похожий на таковой у силовых узлов.
+	Вы можете получить объект Building для любого присоединённого блока при помощи [stat]getlink[].
+	Пример: итерация по всем подключенным блокам:
 		[stat]set[] [royal]i[] [coral]0
 		[stat]getlink[] [royal]block i
 		[stat]jump[] [coral]1 lessThan[] [royal]i @links
 
 [royal]Building[] [pink]suffix<n>
-	Constant that refers to the [pink]n[]th connected [pink]suffix[] building.
+	Константа, указывающая на [pink]n[]th присоединённое [pink]suffix[] строение.
 	Suffix is the last part of a block's internal name.
 	[pink]N[] starts with 1 and currently to be changed you must replace the processor.
 	[pink]N[] increases with the block's suffix, not for the block specifically.
